@@ -41,9 +41,22 @@ if (gameType === "Addition") {
 } 
 
 
-
+/**
+ * Checks the answer against the first element in
+ * the retuned calculateCorrectAnswer array
+ */
 function checkAnswer() {
-    
+    let userAnswer = parseInt (document.getElementById("answer-box").value);
+    let calculatedAnswer = calculateCorrectAnswer();
+    let isCorrect = userAnswer === calculatedAnswer[0];
+
+    if (isCorrect) {
+        alert("Hey! You got it Right! :D");
+    } else {
+        alert(`Aww.. you answered ${userAnswer}. The correct answer was ${calculatedAnswer[0]}!`);
+    }
+
+    runGame(calculatedAnswer[1]);
 
 }
 
