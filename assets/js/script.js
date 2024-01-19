@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
     for (let button of buttons) {
         this.addEventListener("click", function() {
             if (this.getattribute("data-type") === "submit") {
-                alert("You clicked Submit!");
+                checkAnswer();
             } else { 
                 let gameType = this.getAttribute("data-type");  
                 runGame(gameType);
@@ -43,10 +43,26 @@ if (gameType === "Addition") {
 
 
 function checkAnswer() {
+    
 
 }
 
+/**
+ * Gets the operands (The numbers) and the operator (plus, minus etc)
+ * directly from the DOm, and returns the correcxt answer.
+ */
 function calculateCorrectAnswer() {
+
+    let operand1 = parseInt(document.getElementById('operand1').innerText);
+    let operand2 = parseInt(document.getElementById('operand2').innerText);
+    let operator = document.getElementById("operator").innerText;
+
+    if (operator === "+") {
+        return [operand1 + operand2, "addition"];
+    } else {
+        alert (`Unimplemented operator ${operator}`);
+        throw `Unimplemented operator ${operator}. Aborting!`;
+    }
 
 }
 
